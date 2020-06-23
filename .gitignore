@@ -1,0 +1,9 @@
+# autoenv
+.in
+.out
+
+# node packages lock
+package-lock.json
+
+# pycharm
+.idea
