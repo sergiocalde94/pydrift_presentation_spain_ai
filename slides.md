@@ -2,7 +2,7 @@
 title: Spain AI - pydrift
 ---
 
-### Mi modelo ha dejado de funcionar y ~~no~~ se porqué
+### Mi modelo ha dejado de funcionar y ~~no~~ se por qué
 
 Sergio Calderón Pérez-Lozao
 
