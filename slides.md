@@ -2,19 +2,28 @@
 title: Spain AI - pydrift
 ---
 
-### Mi modelo ha dejado de funcionar y ~~no~~ se por qué
+### Mi modelo ha dejado de funcionar y ~~no~~ sé por qué
 
 Sergio Calderón Pérez-Lozao
 
 Junio 2020
 
+<a class="icon-github social-button color" href="http://github.com/sergiocalde94"></a>
+<a class="icon-twitter social-button color" href="http://twitter.com/sergiocalde94"></a>
+<a class="icon-linkedin social-button color" href="https://es.linkedin.com/in/sergiocalde94"></a>
+
 ---
 
 ## Sobre mí
 
-- Data Scientist en Orange
-- No reinvento la rueda
-- Modelos reproducibles y código bien hecho
+- Data Scientist en Orange 👨‍🔬
+- Modelos reproducibles y código limpio 🖥️
+- No reinvento la rueda ⚙️
+- Cerveza y pasarlo bien 🍺
+
+----
+
+<img src="https://github.com/sergiocalde94/pydrift_presentation_spain_ai/blob/master/images/datafreaks.jpeg?raw=true" width="85%">
 
 ---
 
@@ -38,20 +47,30 @@ Junio 2020
 
 ## Y para mi... Resuelve problemas
 
-- Cuestionarse todo y dar soluciones, a problemas, ~~normalmente~~ con datos
+- Cuestionarse todo y dar soluciones, a problemas, ~~normalmente~~, con datos
 - Las soluciones a estos problemas tienen que ser reproducibles
 - Las tecnologías no son lo importante
     - El "como" vs el "porqué"
 
 ---
 
-### ¿Que problema intenta resolver *pydrift*?
+### ¿Que problema intenta resolver `pydrift`?
 
-- Los modelos se degradan
-- Las fuentes de datos no son tan homogéneas como nos gustaría
-- En muchas ocasiones los comportamientos son estacionales
-- Hay que mimar mucho nuestra target
+- Los modelos se degradan 📉
+- Las fuentes de datos no son tan homogéneas como nos gustaría 🗃️
+- En muchas ocasiones los comportamientos son estacionales 🍂
+- Hay que mimar mucho nuestra target 🎯
     - Además de alinearla con el problema que queremos resolver, pero eso es otro tema
+
+----
+
+#### ¿Por qué `pydrift`?
+
+- Escrita en **py**thon
+- Mide el **drift**
+- Hay alguna solución escrita
+    - [azureml.datadrift](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-monitor-datasets) implementada en python (requiere esta plataforma)
+    - [drifter](https://modeloriented.github.io/drifter/) escrita en R
 
 ---
 
@@ -63,15 +82,15 @@ Junio 2020
 
 #### Causas de mal comportamiento
 
-- Nuestro modelo es muy complejo y no generaliza bien: *overfitting*
-- Nuestro modelo es muy simple y no aprende patrones: *underfitting*
+- Nuestro modelo es muy complejo y no generaliza bien: *overfitting* ‼️
+- Nuestro modelo es muy simple y no aprende patrones: *underfitting* ‼️
 
 ----
 
 #### Causas de degradación
 
-- Las `X` no tienen las mismas distribuciones que las que se aprendió el modelo
-- La `y` no tiene la misma relación con las `X` que tenía a la hora de entrenar
+- Las `X` no tienen las mismas distribuciones que las que se aprendió el modelo ‼️
+- La `y` no tiene la misma relación con las `X` que tenía a la hora de entrenar ‼️
 
 ----
 
@@ -80,12 +99,6 @@ Junio 2020
 ----
 
 <img src="https://i.redd.it/kvvgv6zzhtp11.png" width="45%">
-
----
-
-#### ¿Siempre más datos es la solución?
-
-<img src="https://imgs.xkcd.com/comics/machine_learning_2x.png" width="45%">
 
 ---
 
@@ -102,7 +115,23 @@ Junio 2020
 
 ----
 
-#### Python
+#### Dataframes a izquierda y derecha
+
+```python
+from pydrift import DriftChecher
+
+# Read left and right data with pandas
+...
+
+DriftChecher(df_right, df_left)
+```
+
+- Modelo discriminatorio con target ficticio **is_left** con valores **1** o **0**
+- **Kolmogorov** y **chisquare** para comparar las variables de ambos conjuntos
+
+----
+
+#### Python 🐍
 
 Trabaja por debajo con **scipy** y **shap**, basándose en las estructuras de **pandas**, modelos de **sklearn** y apoyándose en las visualizaciones de **plotly**
 
@@ -120,12 +149,11 @@ from pydrift import DataDriftChecker
 
 data_drift_checker = DataDriftChecker(X_train, X_test)
 data_drift_checker.ml_model_can_discriminate()
-
 ```
 
 ----
 
-- Todos los métodos se acompañan de visualizaciones
+- Todos los métodos se acompañan de visualizaciones 
 - En un entorno productivo podrían ser desactivados fácilmente, así como los mensajes que se le imprimen al usuario 
 
 ---
@@ -224,4 +252,92 @@ weights = model_drift_checker.sample_weight_for_retrain()
 
 ## Casos de uso
 
-TBD
+----
+
+#### Comparación de muestras ✔️
+
+- Dividimos siempre en conjuntos de train y validación
+    - Aleatoriamente (80/20)
+    - Out of time
+- Muchas veces trabajamos con dos origenes
+    - Por ejemplo campañas de marketing vs nuestros datos
+
+----
+
+#### Cambios drásticos (COVID) ✔️
+
+- En Orange, al igual que en casi todas las industrias, nuestros datos han cambiado mucho
+    - ¿Las tendencias **pre-covid** son iguales que las **covid** y que las **post-covid**?
+- Puede ser también un cambio en las tarifas que se ofrecen
+    - ¿Comprarán igual los clientes si en vez de 10€ les cobramos 20€?
+
+----
+
+#### Explicar comportamientos pasados ✔️
+
+- ¿Por qué a **mismo score hay grupos que se comportan distinto**?
+- **Grupos en los que el modelo funcionó peor** -> Estudiar drift en estos grupos
+
+----
+
+#### No es la biblia ❌
+
+- **DataDrift** no siempre implica **ModelDrift**
+- **ModelDrift** no siempre implica **DataDrift**
+- **La figura del data scientist sigue siendo igual de importante**, simplemente facilita el trabajo
+
+---
+
+#### Demo time
+
+- [DriftChecker](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Drift-Demo.ipynb)
+- [DataDrift](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Data-Drift-Demo.ipynb)
+- [ModelDrift](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Model-Drift-Demo.ipynb)
+- [DriftCheckerEstimator](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-DriftCheckerEstimator-Demo.ipynb)
+- [Comparación de muestras](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift_presentation_spain_ai/tree/master/notebooks/Sample-Comparation.ipynb)
+
+---
+
+## y, ¿Cómo lo arreglo?
+
+<img src="https://media.giphy.com/media/SphdK3sFxFYZy/giphy.gif" width="45%">
+
+----
+
+#### No existe una formula mágica, pero...
+
+- Muchas veces los drifts son **fallos en las fuentes de datos**
+- A veces ocurre en variables que **no son importantes** en la decisión de nuestro modelo
+- Puede servir para **comunicar** que tu modelo no se va a comportar como negocio espera
+- También para **cambiar las variables** de tu modelo para un determinado momento
+
+----
+
+#### Garbage In Garbage Out
+
+<img src="https://imgs.xkcd.com/comics/machine_learning_2x.png" width="45%">
+
+---
+
+#### Limitaciones ~de momento😈~
+
+- Solo válido si predecimos con todos los datos 👎
+- Al comparar distribuciones y fijarnos en el pvalue dependemos del tamaño muestral 👎
+- Solo es compatible con dataframes de pandas y modelos que sigan el API de sklearn 👎
+- Seguramente habrá más no conocidas en este momento 👎
+
+---
+
+#### ~¿Puedo contribuir?~ ¡Puedes contribuir!
+
+- Cualquier idea es bienvenida 💡
+- Reporte de bugs es necesario 🐛
+    - Con el mayor uso habrá gente que descubrirá fallos
+- Actualmente no hay guía para contribuir pero pronto la subiré 🙏
+    - Si no sabes como déjame un mensaje en cualquier red social
+
+---
+
+#### ¡Gracias! ¿Alguna pregunta?
+
+<img src="https://media.giphy.com/media/xUPGcJ1EHTMBkRHxnO/giphy.gif" width="45%">

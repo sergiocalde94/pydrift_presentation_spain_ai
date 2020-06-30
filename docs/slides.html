@@ -8,24 +8,33 @@
     <link rel="stylesheet" href="./dist/reveal.css" />
     <link rel="stylesheet" href="./dist/theme/blood.css" id="theme" />
     <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./_assets/css/social-circles.min.css" />
+    <link rel="stylesheet" href="./_assets/css/resize-emoji.css" />
 
   </head>
   <body>
     <div class="reveal">
       <div class="slides"><section  data-markdown><script type="text/template">
 
-### Mi modelo ha dejado de funcionar y ~~no~~ se por qué
+### Mi modelo ha dejado de funcionar y ~~no~~ sé por qué
 
 Sergio Calderón Pérez-Lozao
 
 Junio 2020
-</script></section><section  data-markdown><script type="text/template">
+
+<a class="icon-github social-button color" href="http://github.com/sergiocalde94"></a>
+<a class="icon-twitter social-button color" href="http://twitter.com/sergiocalde94"></a>
+<a class="icon-linkedin social-button color" href="https://es.linkedin.com/in/sergiocalde94"></a>
+</script></section><section ><section data-markdown><script type="text/template">
 ## Sobre mí
 
-- Data Scientist en Orange
-- No reinvento la rueda
-- Modelos reproducibles y código bien hecho
-</script></section><section ><section data-markdown><script type="text/template">
+- Data Scientist en Orange <img class="emoji" draggable="false" alt="👨‍🔬" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f468-200d-1f52c.png"/>
+- Modelos reproducibles y código limpio <img class="emoji" draggable="false" alt="🖥️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f5a5.png"/>
+- No reinvento la rueda <img class="emoji" draggable="false" alt="⚙️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/2699.png"/>
+- Cerveza y pasarlo bien <img class="emoji" draggable="false" alt="🍺" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f37a.png"/>
+</script></section><section data-markdown><script type="text/template">
+<img src="https://github.com/sergiocalde94/pydrift_presentation_spain_ai/blob/master/images/datafreaks.jpeg?raw=true" width="85%">
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## ¿Qué es un Data Scientist?
 
 > Person who is better at statistics than any software engineer and better at software engineering than any statistician. — Josh Wills, Director of Data Engineering at Slack
@@ -40,41 +49,45 @@ Junio 2020
 </script></section><section data-markdown><script type="text/template">
 ## Y para mi... Resuelve problemas
 
-- Cuestionarse todo y dar soluciones, a problemas, ~~normalmente~~ con datos
+- Cuestionarse todo y dar soluciones, a problemas, ~~normalmente~~, con datos
 - Las soluciones a estos problemas tienen que ser reproducibles
 - Las tecnologías no son lo importante
     - El "como" vs el "porqué"
-</script></section></section><section  data-markdown><script type="text/template">
-### ¿Que problema intenta resolver *pydrift*?
+</script></section></section><section ><section data-markdown><script type="text/template">
+### ¿Que problema intenta resolver `pydrift`?
 
-- Los modelos se degradan
-- Las fuentes de datos no son tan homogéneas como nos gustaría
-- En muchas ocasiones los comportamientos son estacionales
-- Hay que mimar mucho nuestra target
+- Los modelos se degradan <img class="emoji" draggable="false" alt="📉" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f4c9.png"/>
+- Las fuentes de datos no son tan homogéneas como nos gustaría <img class="emoji" draggable="false" alt="🗃️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f5c3.png"/>
+- En muchas ocasiones los comportamientos son estacionales <img class="emoji" draggable="false" alt="🍂" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f342.png"/>
+- Hay que mimar mucho nuestra target <img class="emoji" draggable="false" alt="🎯" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f3af.png"/>
     - Además de alinearla con el problema que queremos resolver, pero eso es otro tema
-</script></section><section ><section data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
+#### ¿Por qué `pydrift`?
+
+- Escrita en **py**thon
+- Mide el **drift**
+- Hay alguna solución escrita
+    - [azureml.datadrift](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-monitor-datasets) implementada en python (requiere esta plataforma)
+    - [drifter](https://modeloriented.github.io/drifter/) escrita en R
+</script></section></section><section ><section data-markdown><script type="text/template">
 #### ¿Cuánto tiempo está mi modelo en producción sin degradarse?
 
 <img src="https://glassboxmedicine.files.wordpress.com/2019/02/roc-curve-v2.png" width="45%">
 </script></section><section data-markdown><script type="text/template">
 #### Causas de mal comportamiento
 
-- Nuestro modelo es muy complejo y no generaliza bien: *overfitting*
-- Nuestro modelo es muy simple y no aprende patrones: *underfitting*
+- Nuestro modelo es muy complejo y no generaliza bien: *overfitting* <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
+- Nuestro modelo es muy simple y no aprende patrones: *underfitting* <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
 </script></section><section data-markdown><script type="text/template">
 #### Causas de degradación
 
-- Las `X` no tienen las mismas distribuciones que las que se aprendió el modelo
-- La `y` no tiene la misma relación con las `X` que tenía a la hora de entrenar
+- Las `X` no tienen las mismas distribuciones que las que se aprendió el modelo <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
+- La `y` no tiene la misma relación con las `X` que tenía a la hora de entrenar <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
 </script></section><section data-markdown><script type="text/template">
 > Definiremos como **DataDrift**  esos cambios en las **X** y como **ModelDrift** los que se refieren a la **y**
 </script></section><section data-markdown><script type="text/template">
 <img src="https://i.redd.it/kvvgv6zzhtp11.png" width="45%">
-</script></section></section><section  data-markdown><script type="text/template">
-#### ¿Siempre más datos es la solución?
-
-<img src="https://imgs.xkcd.com/comics/machine_learning_2x.png" width="45%">
-</script></section><section ><section data-markdown><script type="text/template">
+</script></section></section><section ><section data-markdown><script type="text/template">
 #### Pero entonces, qué son *DataDrift* y *ModelDrift*
 
 <img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" width="45%">
@@ -84,7 +97,21 @@ Junio 2020
 - Modelo discriminatorio
 - Comparación de distribuciones
 </script></section><section data-markdown><script type="text/template">
-#### Python
+#### Dataframes a izquierda y derecha
+
+```python
+from pydrift import DriftChecher
+
+# Read left and right data with pandas
+...
+
+DriftChecher(df_right, df_left)
+```
+
+- Modelo discriminatorio con target ficticio **is_left** con valores **1** o **0**
+- **Kolmogorov** y **chisquare** para comparar las variables de ambos conjuntos
+</script></section><section data-markdown><script type="text/template">
+#### Python <img class="emoji" draggable="false" alt="🐍" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f40d.png"/>
 
 Trabaja por debajo con **scipy** y **shap**, basándose en las estructuras de **pandas**, modelos de **sklearn** y apoyándose en las visualizaciones de **plotly**
 </script></section><section data-markdown><script type="text/template">
@@ -100,10 +127,9 @@ from pydrift import DataDriftChecker
 
 data_drift_checker = DataDriftChecker(X_train, X_test)
 data_drift_checker.ml_model_can_discriminate()
-
 ```
 </script></section><section data-markdown><script type="text/template">
-- Todos los métodos se acompañan de visualizaciones
+- Todos los métodos se acompañan de visualizaciones 
 - En un entorno productivo podrían ser desactivados fácilmente, así como los mensajes que se le imprimen al usuario 
 </script></section></section><section ><section data-markdown><script type="text/template">
 #### Tipos de visualizaciones
@@ -183,10 +209,76 @@ weights = model_drift_checker.sample_weight_for_retrain()
 ```
 
 <img src="https://sergiocalde94.github.io/pydrift/docs/images/shift_plot_by_bin.png" width="45%">
-</script></section></section><section  data-markdown><script type="text/template">
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Casos de uso
+</script></section><section data-markdown><script type="text/template">
+#### Comparación de muestras <img class="emoji" draggable="false" alt="✔️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/2714.png"/>
 
-TBD
+- Dividimos siempre en conjuntos de train y validación
+    - Aleatoriamente (80/20)
+    - Out of time
+- Muchas veces trabajamos con dos origenes
+    - Por ejemplo campañas de marketing vs nuestros datos
+</script></section><section data-markdown><script type="text/template">
+#### Cambios drásticos (COVID) <img class="emoji" draggable="false" alt="✔️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/2714.png"/>
+
+- En Orange, al igual que en casi todas las industrias, nuestros datos han cambiado mucho
+    - ¿Las tendencias **pre-covid** son iguales que las **covid** y que las **post-covid**?
+- Puede ser también un cambio en las tarifas que se ofrecen
+    - ¿Comprarán igual los clientes si en vez de 10€ les cobramos 20€?
+</script></section><section data-markdown><script type="text/template">
+#### Explicar comportamientos pasados <img class="emoji" draggable="false" alt="✔️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/2714.png"/>
+
+- ¿Por qué a **mismo score hay grupos que se comportan distinto**?
+- **Grupos en los que el modelo funcionó peor** -> Estudiar drift en estos grupos
+</script></section><section data-markdown><script type="text/template">
+#### No es la biblia <img class="emoji" draggable="false" alt="❌" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/274c.png"/>
+
+- **DataDrift** no siempre implica **ModelDrift**
+- **ModelDrift** no siempre implica **DataDrift**
+- **La figura del data scientist sigue siendo igual de importante**, simplemente facilita el trabajo
+</script></section></section><section  data-markdown><script type="text/template">
+#### Demo time
+
+- [DriftChecker](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Drift-Demo.ipynb)
+- [DataDrift](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Data-Drift-Demo.ipynb)
+- [ModelDrift](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Model-Drift-Demo.ipynb)
+- [DriftCheckerEstimator](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-DriftCheckerEstimator-Demo.ipynb)
+- [Comparación de muestras](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift_presentation_spain_ai/tree/master/notebooks/Sample-Comparation.ipynb)
+</script></section><section ><section data-markdown><script type="text/template">
+## y, ¿Cómo lo arreglo?
+
+<img src="https://media.giphy.com/media/SphdK3sFxFYZy/giphy.gif" width="45%">
+</script></section><section data-markdown><script type="text/template">
+#### No existe una formula mágica, pero...
+
+- Muchas veces los drifts son **fallos en las fuentes de datos**
+- A veces ocurre en variables que **no son importantes** en la decisión de nuestro modelo
+- Puede servir para **comunicar** que tu modelo no se va a comportar como negocio espera
+- También para **cambiar las variables** de tu modelo para un determinado momento
+</script></section><section data-markdown><script type="text/template">
+#### Garbage In Garbage Out
+
+<img src="https://imgs.xkcd.com/comics/machine_learning_2x.png" width="45%">
+</script></section></section><section  data-markdown><script type="text/template">
+#### Limitaciones ~de momento<img class="emoji" draggable="false" alt="😈" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f608.png"/>~
+
+- Solo válido si predecimos con todos los datos <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f44e.png"/>
+- Al comparar distribuciones y fijarnos en el pvalue dependemos del tamaño muestral <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f44e.png"/>
+- Solo es compatible con dataframes de pandas y modelos que sigan el API de sklearn <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f44e.png"/>
+- Seguramente habrá más no conocidas en este momento <img class="emoji" draggable="false" alt="👎" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f44e.png"/>
+</script></section><section  data-markdown><script type="text/template">
+#### ~¿Puedo contribuir?~ ¡Puedes contribuir!
+
+- Cualquier idea es bienvenida <img class="emoji" draggable="false" alt="💡" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f4a1.png"/>
+- Reporte de bugs es necesario <img class="emoji" draggable="false" alt="🐛" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f41b.png"/>
+    - Con el mayor uso habrá gente que descubrirá fallos
+- Actualmente no hay guía para contribuir pero pronto la subiré <img class="emoji" draggable="false" alt="🙏" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f64f.png"/>
+    - Si no sabes como déjame un mensaje en cualquier red social
+</script></section><section  data-markdown><script type="text/template">
+#### ¡Gracias! ¿Alguna pregunta?
+
+<img src="https://media.giphy.com/media/xUPGcJ1EHTMBkRHxnO/giphy.gif" width="45%">
 </script></section></div>
     </div>
 

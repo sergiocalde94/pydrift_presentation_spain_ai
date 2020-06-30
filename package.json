@@ -1,0 +1,27 @@
+{
+  "name": "pydrift_presentation_spain_ai",
+  "version": "1.0.0",
+  "description": "This is a talk on Spain AI available on YouTube from June 2, 2020 about [pydrift](https://github.com/sergiocalde94/pydrift), a python library developed by me :snake:.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "reveal.js": "^4.0.2",
+    "twemoji": "^13.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiocalde94/pydrift_presentation_spain_ai.git"
+  },
+  "author": "sergiocalde94@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergiocalde94/pydrift_presentation_spain_ai/issues"
+  },
+  "homepage": "https://github.com/sergiocalde94/pydrift_presentation_spain_ai#readme"
+}
