@@ -22,9 +22,9 @@ Sergio Calderón Pérez-Lozao
 
 Junio 2020
 
-<a class="icon-github social-button color" href="http://github.com/sergiocalde94"></a>
-<a class="icon-twitter social-button color" href="http://twitter.com/sergiocalde94"></a>
-<a class="icon-linkedin social-button color" href="https://es.linkedin.com/in/sergiocalde94"></a>
+<a class="icon-github social-button color" href="http://github.com/sergiocalde94" target="_blank"></a>
+<a class="icon-twitter social-button color" href="http://twitter.com/sergiocalde94" target="_blank"></a>
+<a class="icon-linkedin social-button color" href="https://es.linkedin.com/in/sergiocalde94" target="_blank"></a>
 </script></section><section ><section data-markdown><script type="text/template">
 ## Sobre mí
 
@@ -49,7 +49,7 @@ Junio 2020
 </script></section><section data-markdown><script type="text/template">
 ## Y para mi... Resuelve problemas
 
-- Cuestionarse todo y dar soluciones, a problemas, ~~normalmente~~, con datos
+- Cuestionarse todo y dar soluciones a problemas, ~~normalmente~~, con datos
 - Las soluciones a estos problemas tienen que ser reproducibles
 - Las tecnologías no son lo importante
     - El "como" vs el "porqué"
@@ -81,8 +81,11 @@ Junio 2020
 </script></section><section data-markdown><script type="text/template">
 #### Causas de degradación
 
-- Las `X` no tienen las mismas distribuciones que las que se aprendió el modelo <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
-- La `y` no tiene la misma relación con las `X` que tenía a la hora de entrenar <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
+- Las `X` no tienen las mismas distribuciones que las que se aprendió el modelo (covariate shift) <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
+- La `y` no tiene la misma relación con las `X` que tenía a la hora de entrenar (concept shift) <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
+- La `y` cambia de distribución (prior probability shift) <img class="emoji" draggable="false" alt="‼️" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/203c.png"/>
+
+###### [Covariate shift, the hidden problem of real world data science](https://www.analyticsvidhya.com/blog/2017/07/covariate-shift-the-hidden-problem-of-real-world-data-science/)️
 </script></section><section data-markdown><script type="text/template">
 > Definiremos como **DataDrift**  esos cambios en las **X** y como **ModelDrift** los que se refieren a la **y**
 </script></section><section data-markdown><script type="text/template">
@@ -133,6 +136,9 @@ data_drift_checker.ml_model_can_discriminate()
 - En un entorno productivo podrían ser desactivados fácilmente, así como los mensajes que se le imprimen al usuario 
 </script></section></section><section ><section data-markdown><script type="text/template">
 #### Tipos de visualizaciones
+
+- **InterpretableDrift**: Tanto para **DataDrift** como **ModelDrift** (incluso para cualquier modelo de **sklearn**) <img class="emoji" draggable="false" alt="👀" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f440.png"/>
+- Se puede aplicar al modelo discriminador o a tu modelo <img class="emoji" draggable="false" alt="👬" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f46c.png"/>
 </script></section><section data-markdown><script type="text/template">
 #### Variables más discriminadoras
 
@@ -244,7 +250,7 @@ weights = model_drift_checker.sample_weight_for_retrain()
 - [DataDrift](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Data-Drift-Demo.ipynb)
 - [ModelDrift](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Model-Drift-Demo.ipynb)
 - [DriftCheckerEstimator](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-DriftCheckerEstimator-Demo.ipynb)
-- [Comparación de muestras](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift_presentation_spain_ai/tree/master/notebooks/Sample-Comparation.ipynb)
+- [Comparación de muestras](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift_presentation_spain_ai/blob/master/notebooks/Sample-Comparation.ipynb)
 </script></section><section ><section data-markdown><script type="text/template">
 ## y, ¿Cómo lo arreglo?
 

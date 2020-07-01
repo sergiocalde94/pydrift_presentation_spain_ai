@@ -8,9 +8,9 @@ Sergio Calderón Pérez-Lozao
 
 Junio 2020
 
-<a class="icon-github social-button color" href="http://github.com/sergiocalde94"></a>
-<a class="icon-twitter social-button color" href="http://twitter.com/sergiocalde94"></a>
-<a class="icon-linkedin social-button color" href="https://es.linkedin.com/in/sergiocalde94"></a>
+<a class="icon-github social-button color" href="http://github.com/sergiocalde94" target="_blank"></a>
+<a class="icon-twitter social-button color" href="http://twitter.com/sergiocalde94" target="_blank"></a>
+<a class="icon-linkedin social-button color" href="https://es.linkedin.com/in/sergiocalde94" target="_blank"></a>
 
 ---
 
@@ -47,7 +47,7 @@ Junio 2020
 
 ## Y para mi... Resuelve problemas
 
-- Cuestionarse todo y dar soluciones, a problemas, ~~normalmente~~, con datos
+- Cuestionarse todo y dar soluciones a problemas, ~~normalmente~~, con datos
 - Las soluciones a estos problemas tienen que ser reproducibles
 - Las tecnologías no son lo importante
     - El "como" vs el "porqué"
@@ -89,8 +89,11 @@ Junio 2020
 
 #### Causas de degradación
 
-- Las `X` no tienen las mismas distribuciones que las que se aprendió el modelo ‼️
-- La `y` no tiene la misma relación con las `X` que tenía a la hora de entrenar ‼️
+- Las `X` no tienen las mismas distribuciones que las que se aprendió el modelo (covariate shift) ‼️
+- La `y` no tiene la misma relación con las `X` que tenía a la hora de entrenar (concept shift) ‼️
+- La `y` cambia de distribución (prior probability shift) ‼️
+
+###### [Covariate shift, the hidden problem of real world data science](https://www.analyticsvidhya.com/blog/2017/07/covariate-shift-the-hidden-problem-of-real-world-data-science/)️
 
 ----
 
@@ -159,6 +162,9 @@ data_drift_checker.ml_model_can_discriminate()
 ---
 
 #### Tipos de visualizaciones
+
+- **InterpretableDrift**: Tanto para **DataDrift** como **ModelDrift** (incluso para cualquier modelo de **sklearn**) 👀
+- Se puede aplicar al modelo discriminador o a tu modelo 👬
 
 ----
 
@@ -294,7 +300,7 @@ weights = model_drift_checker.sample_weight_for_retrain()
 - [DataDrift](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Data-Drift-Demo.ipynb)
 - [ModelDrift](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-Model-Drift-Demo.ipynb)
 - [DriftCheckerEstimator](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift/blob/master/notebooks/1-Titanic-DriftCheckerEstimator-Demo.ipynb)
-- [Comparación de muestras](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift_presentation_spain_ai/tree/master/notebooks/Sample-Comparation.ipynb)
+- [Comparación de muestras](https://nbviewer.jupyter.org/github/sergiocalde94/pydrift_presentation_spain_ai/blob/master/notebooks/Sample-Comparation.ipynb)
 
 ---
 
