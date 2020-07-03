@@ -50,7 +50,7 @@ Junio 2020
 - Cuestionarse todo y dar soluciones a problemas, ~~normalmente~~, con datos
 - Las soluciones a estos problemas tienen que ser reproducibles
 - Las tecnologías no son lo importante
-    - El "como" vs el "porqué"
+    - El "cómo" vs el "porqué"
 
 ---
 
@@ -126,7 +126,7 @@ from pydrift import DriftChecher
 # Read left and right data with pandas
 ...
 
-DriftChecher(df_right, df_left)
+DriftChecher(df_left, df_right)
 ```
 
 - Modelo discriminatorio con target ficticio **is_left** con valores **1** o **0**
